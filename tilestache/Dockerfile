@@ -22,7 +22,8 @@ COPY requirements.txt /usr/src/app/
 RUN pip install -r requirements.txt
 
 COPY tilestache.cfg /etc/tilestache/tilestache.cfg
+COPY gunicorn_config.py /etc/gunicorn/config.py
 
 EXPOSE 8080
 
-CMD gunicorn -b 0.0.0.0:8080 "TileStache:WSGITileServer('/etc/tilestache/tilestache.cfg')"
+CMD gunicorn --config '/etc/gunicorn/config.py' "TileStache:WSGITileServer('/etc/tilestache/tilestache.cfg')"
