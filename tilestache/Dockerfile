@@ -1,4 +1,4 @@
-FROM python:2
+FROM python:2-slim
 MAINTAINER Paulius Masiliunas <info@pauliaus.com>
 
 RUN mkdir -p /usr/src/app
